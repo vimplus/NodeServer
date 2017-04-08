@@ -53,6 +53,10 @@ const server = http.createServer(function (req, res) {
 
         if (stats.isFile) {
             console.log('This is file.');
+            fs.readFile(realFilePath + '/text.txt', {flag: 'r+', encoding: 'utf8'}, function (err, data) {
+                console.log(data)
+            })
+
             res.writeHead(200, {
                 'content-type': contentType
             });
@@ -67,9 +71,7 @@ const server = http.createServer(function (req, res) {
 
         if (stats.isDirectory) {
             var html = '<html><head><mete charset="UTF-8"></head><body>';
-            fs.open(realFilePath + '/text.txt', 'r+', function (err, res) {
-                console.log(res)
-            })
+
             fs.readdir(realFilePath, function (err, files) {
 
                 if (err) {

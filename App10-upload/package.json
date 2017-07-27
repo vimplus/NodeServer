@@ -1,0 +1,23 @@
+{
+  "name": "ajax-upload",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "koa": "^2.3.0",
+    "koa-body": "^1.6.0",
+    "koa-router": "^7.2.1",
+    "koa-static": "^3.0.0",
+    "randomstring": "^1.1.5"
+  }
+}

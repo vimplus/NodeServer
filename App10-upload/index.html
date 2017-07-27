@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .file-upload {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <title>文件上传</title>
+</head>
+
+<body>
+    <form id="upload">
+        <div class="file-upload">
+            <input id="file-case" type="file" name="uploadFiles" />
+        </div>
+        <button type="button" id="uploadBtn">上传</button>
+    </form>
+
+    <script>
+        function xhrSend(formData) {
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open('POST', '/api/files/upload', true);
+            xhr2.onload = function () {
+                if (xhr2.status === 200) {
+                    console.log('success');
+                    console.log(xhr2.response);
+                }
+            };
+            // debugger
+            console.dir(formData)
+            xhr2.send(formData);
+        }
+        function ajaxSend(formData) {
+            $.ajax({
+                url: '/api/files/upload',
+                type: 'POST',
+                data: formData,
+                processData: false, // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                beforeSend: function () {
+                    console.log("正在进行，请稍候");
+                },
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        }
+        $('#uploadBtn').on('click', function (e) {
+            var formData = new FormData();
+            formData.append("uploadFiles", $("#file-case")[0].files[0]);
+            // var filename = $("#file-case").val();
+            // formData.append("filename", filename);
+            // debugger
+            
+            // xhrSend(formData)
+            ajaxSend(formData)
+            return false;
+        })
+        
+    </script>
+</body>
+
+</html>

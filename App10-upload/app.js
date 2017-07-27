@@ -8,10 +8,10 @@ const app = new koa();
 const router = new Router();
 const port = process.env.PORT || 3000;
 
-app.use(staticServer(__dirname));
-app.use(koaBody({ multipart: true }));
-app.use(router.routes()).use(router.allowedMethods());
+app.use(staticServer(__dirname));   // 托管HTML等静态文件
+app.use(koaBody({ multipart: true }));  // 让koa-body支持multipart/form-data;
 
+app.use(router.routes()).use(router.allowedMethods());
 
 router.post('/api/files/upload', async (ctx, next) => {
     var content = ctx.request.body;

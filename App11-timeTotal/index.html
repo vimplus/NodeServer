@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEB页面性能统计</title>
+    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"><i class="loader-round"></i></div>
+    </div>
+    <div class="intro-header"><img class="intro-img" src="images/yjph_header_img_min.jpg" alt="友金普惠"></div>
+    <!--<div class="form-logo"><img src="images/logo@2x.png" alt="友金普惠" class="form-logo_img"></div>-->
+    <div class="apply-ctn" style="display:block;">
+        <!--<h1 class="form-title">申请人信息</h1>-->
+        <form class="form-box" action="#" id="regForm">
+            <div class="form-box_sub profile-box">
+                <div class="form-box_item">
+                    <label class="form-box_label" for="customerName">姓名</label>
+                    <input class="form-box_input" type="text" id="customerName" name="customerName" placeholder="请输入姓名" required novalidate="true">
+                </div>
+                <div class="form-box_item">
+                    <label class="form-box_label" for="workplace">现工作地</label>
+                    <select class="form-box_input" id="workplace" name="outletId">
+                        <!-- <option value="" class="">请选择</option> -->
+                    </select>
+                    <i class="form-box_arrow"></i>
+                </div>
+                <div class="form-box_item">
+                    <label class="form-box_label" for="certId">身份证号</label>
+                    <input class="form-box_input" type="text" id="certId" name="certId" placeholder="请输入身份证号码" required novalidate="true" vl-pattern="/(^\d{15}$)|(^\d{17}(\d|X)$)/">
+                </div>
+            </div>
+
+            <div class="form-box_sub">
+                <div class="form-box_item">
+                    <label class="form-box_label" for="phone">联系电话</label>
+                    <input class="form-box_input" type="text" id="phone" name="phone" placeholder="请输入手机号码" required vl-pattern="/^(13|15|18|17|14)[0-9]{9}$/" novalidate="true">
+                </div>
+                <div class="form-box_item code">
+                    <label class="form-box_label" for="verifyCode">短信验证码</label>
+                    <input class="form-box_input" type="text" id="verifyCode" name="verifyCode" placeholder="验证码" required novalidate="true">
+                    <a href="javascript: void(0)" class="form-box_btn" id="verifyCodeBtn">获取</a>
+                </div>
+            </div>
+            <input type="hidden" name="rcmdCode" id="rcmdCode">
+            <input type="hidden" name="yjscode" id="yjsCode">
+            <button class="form-box_submit" id="register" data-key="apply">申请</button>
+            <div class="form-box_protocal">
+                <span class="form-box_checkGroup">&nbsp;<input type="checkbox" class="form-box_cscheckBox" id="agreeProtocol" checked><label class="cs-checkbox" for="agreeProtocol"></label></span>
+                <label for="agreeProtocol">同意友金普惠向我推荐合适的借款产品</label>
+            </div>
+        </form>
+        <div class="intro-footer"><img class="intro-img" src="images/intro_img_min.jpg" alt="友金普惠介绍图"></div>
+        <div class="error-box" id="errorbox" style="display:none;">
+            <div class="error-box_ctn">
+                <span class="error-box_text"></span>
+            </div>
+        </div>
+    </div>
+    <div class="success-ctn" style="display:none;">
+        <h4>恭喜您申请成功</h4>
+        请耐心等待工作人员与您联系
+        <div class="suc-banner"></div>
+    </div>
+    <script>
+        for (var i = 0; i < 10000; i++) {
+            console.log('---i:', i)
+        }
+        function performanceTest(){
+            var timing = performance.timing;
+            var readyStart = timing.fetchStart - timing.navigationStart;
+            var redirectTime = timing.redirectEnd  - timing.redirectStart;
+            var appcacheTime = timing.domainLookupStart  - timing.fetchStart;
+            var unloadEventTime = timing.unloadEventEnd - timing.unloadEventStart;
+            var lookupDomainTime = timing.domainLookupEnd - timing.domainLookupStart;
+            var connectTime = timing.connectEnd - timing.connectStart;
+            var requestTime = timing.responseEnd - timing.requestStart;
+            var initDomTreeTime = timing.domInteractive - timing.responseEnd;
+            var domReadyTime = timing.domComplete - timing.domInteractive;
+            var loadEventTime = timing.loadEventEnd - timing.loadEventStart;
+            var loadTime = timing.loadEventEnd - timing.navigationStart;
+
+            console.log('timing:', timing)
+            console.log('准备新页面时间耗时: ', readyStart);
+            console.log('redirect 重定向耗时: ', redirectTime);
+            console.log('Appcache 耗时: ', appcacheTime);
+            console.log('unload 前文档耗时: ', unloadEventTime);
+            console.log('DNS 查询耗时: ', lookupDomainTime);
+            console.log('TCP连接耗时: ', connectTime);
+            console.log('request请求耗时: ', requestTime);
+            console.log('请求完毕至DOM加载: ', initDomTreeTime);
+            console.log('解释dom树耗时: ', domReadyTime);
+            console.log('load事件耗时: ', loadEventTime);
+            console.log('加载时间耗时: ', loadTime);
+        }
+
+        setTimeout(() => {
+            performanceTest()
+        }, 500)
+
+    </script>
+</body>
+</html>

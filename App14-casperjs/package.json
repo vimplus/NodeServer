@@ -1,0 +1,15 @@
+{
+  "name": "casperjs-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "node app.js",
+    "baidu": "casperjs baidu.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "casperjs": "^1.1.4",
+  }
+}

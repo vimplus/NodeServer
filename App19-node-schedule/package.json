@@ -1,0 +1,16 @@
+{
+  "name": "node-schedule",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "server": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "moment": "^2.20.1",
+    "node-schedule": "^1.3.0"
+  }
+}

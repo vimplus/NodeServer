@@ -3,7 +3,7 @@ const moment = require('moment');
 
 exports.timerA = () => {
     const rule = new schedule.RecurrenceRule();
-    // 每10秒执行
+    // 每10秒执行一次
     rule.second = [0,10,20,30,40,50];
 
     const j = schedule.scheduleJob(rule, function(){

@@ -1,5 +1,5 @@
-const { timerA } = require('./timerA.js');
-const { timerB } = require('./timerB.js');
+const timerA = require('./timerA');
+const timerB = require('./timerB');
 
-timerA();
+timerA.run();
 timerB();

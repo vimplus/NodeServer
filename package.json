@@ -1,0 +1,25 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "记录前端或Node开发中一些特殊难点的web实例。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vimplus/NodeServer.git"
+  },
+  "keywords": [],
+  "author": "txboy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vimplus/NodeServer/issues"
+  },
+  "homepage": "https://github.com/vimplus/NodeServer#readme",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chrome Queueing 测试 Demo</title>
+</head>
+<body>
+    <div id="app">测试请求阻塞</div>
+    <script>
+        for (let i = 0; i < 20; i++) {
+            fetch('/api/get', { method: 'GET'})
+        }
+
+        for (let i = 0; i < 20; i++) {
+            fetch('http://test.eric.com:9999/api/9999', { method: 'GET'})
+        }
+    </script>
+</body>
+</html>

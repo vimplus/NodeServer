@@ -9,6 +9,6 @@
   "author": "txboy",
   "license": "ISC",
   "dependencies": {
-    "moment": "^2.19.1"
+    "moment": "^2.29.2"
   }
 }
